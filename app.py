@@ -59,7 +59,7 @@ with col1:
     st.subheader("Input Details")
     
     profile = st.text_area(
-        "LinkedIn Profile / Resume / About Section", 
+        "www.linkedin.com/in/deepam23", 
         height=250, 
         placeholder="Paste your LinkedIn profile, resume, or About section here..."
     )
@@ -108,15 +108,15 @@ with col2:
         else:
             with st.spinner("Analyzing profile..."):
                 # Retrieve API Key
-                groq_api_key = os.environ.get("GROQ_API_KEY")
+                groq_api_key = os.environ.get("GLOQ_BEC_APT_KEY")
                 
                 if not groq_api_key:
-                    output_container.error("GROQ_API_KEY not found. Please set it in your `.env` file or system environment variables.")
+                    output_container.error("GLOQ_BEC_APT_KEY not found. Please set it in your `.env` file or system environment variables.")
                 else:
                     try:
                         # 1. Initialize LLM dynamically with the user's selected temperature
                         llm = ChatGroq(
-                            groq_api_key=groq_api_key,
+                            groq_api_key=GLOQ_BEC_APT_KEY,
                             model_name="llama-3.3-70b-versatile",
                             temperature=temperature
                         )
